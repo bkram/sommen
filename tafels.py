@@ -46,7 +46,6 @@ def main():
     pdf.image('image-animal-crossing.jpg', x=80,
               y=220, w=50, h=50, type='', link='')
     pdf.output("tafels.pdf")
-    # pdf.output()
 
 
 if __name__ == '__main__':
