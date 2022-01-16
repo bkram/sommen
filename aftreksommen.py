@@ -1,6 +1,5 @@
+from sommen import maakaftreksommen
 from fpdf import FPDF
-
-from sommen import maaktafels
 
 
 def main():
@@ -14,10 +13,10 @@ def main():
         'Naam:', 'Begintijd:', 'Eindtijd:'), ln=1, align="C")
     pdf.cell(200, 10, txt='', ln=1, align="L")
     pdf.set_font('Ubuntu Mono', size=18)
-    tafels = maaktafels()
+    tafels = maakaftreksommen(30)
     spacer = 0
     for a in range(0, len(tafels), 4):
-        row = '{:12} {:12} {:12} {:12}'.format(
+        row = '{:8} {:12} {:12} {:12}'.format(
             tafels[a], tafels[a + 1], tafels[a + 2], tafels[a + 3])
 
         if spacer == 5:
@@ -30,9 +29,9 @@ def main():
         if a == 56:
             break
 
-    pdf.image('images/image-animal-crossing.jpg', x=80,
+    pdf.image('images/image-super-mario.jpg', x=80,
               y=220, w=50, h=50, type='', link='')
-    pdf.output("output/tafels.pdf")
+    pdf.output("output/aftreksommen.pdf")
 
 
 if __name__ == '__main__':

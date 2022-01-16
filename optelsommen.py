@@ -1,19 +1,5 @@
-import random
-
+from sommen import maakoptelsommen
 from fpdf import FPDF
-
-
-def shuffle(array):
-    random.shuffle(array)
-    return array
-
-
-def maakoptelsommen():
-    sommen = []
-    for counter in range(1, 25):
-        for table in range(1, 25):
-            sommen.append('{:2} + {:2} ='.format(counter, table))
-    return shuffle(sommen)
 
 
 def main():
@@ -26,8 +12,8 @@ def main():
     pdf.cell(200, 10, txt='{:30} {:16} {:16}'.format(
         'Naam:', 'Begintijd:', 'Eindtijd:'), ln=1, align="C")
     pdf.cell(200, 10, txt='', ln=1, align="L")
-    pdf.set_font('Ubuntu Mono', size=20)
-    tafels = maakoptelsommen()
+    pdf.set_font('Ubuntu Mono', size=18)
+    tafels = maakoptelsommen(25)
     spacer = 0
     for a in range(0, len(tafels), 4):
         row = '{:12} {:12} {:12} {:12}'.format(
@@ -43,9 +29,9 @@ def main():
         if a == 56:
             break
 
-    pdf.image('image-super-mario.jpg', x=80,
+    pdf.image('images/image-super-mario.jpg', x=80,
               y=220, w=50, h=50, type='', link='')
-    pdf.output("optelsommen.pdf")
+    pdf.output("output/optelsommen.pdf")
 
 
 if __name__ == '__main__':
